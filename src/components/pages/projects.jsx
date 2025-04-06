@@ -1,4 +1,3 @@
-import { Squares } from "@/components/ui/squares-background";
 import { motion } from "framer-motion";
 import image1 from "@/assets/images/project1.jpg";
 
@@ -49,38 +48,29 @@ export default function Projects() {
 
   return (
     <section className="relative max-w-7xl mx-auto flex items-center justify-center min-h-screen px-4 py-20">
-      <div className="w-full h-[800px] rounded-3xl overflow-hidden bg-[#0A0A0A] relative">
-        <Squares
-          direction="diagonal"
-          speed={0.3}
-          squareSize={40}
-          borderColor="#222"
-          hoverFillColor="#1A1A1A"
-        />
-        
-        <div className="absolute inset-0 flex items-center justify-center p-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              My Projects
-            </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {projects.map((project, index) => (
-                <ProjectCard
-                  key={index}
-                  title={project.title}
-                  description={project.description}
-                  technologies={project.technologies}
-                  image={project.image}
-                />
-              ))}
-            </div>
-          </motion.div>
-        </div>
+      <div className="h-20" />
+      <div className="absolute inset-0 flex items-center justify-center p-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            My Projects
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                technologies={project.technologies}
+                image={project.image}
+              />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
