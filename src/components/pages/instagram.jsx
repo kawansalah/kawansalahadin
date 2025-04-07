@@ -66,7 +66,7 @@ export default function Instagram() {
         </motion.div>
         <div className="mt-8 relative">
           <a 
-            href="https://www.instagram.com/yourusername" 
+            href="https://www.instagram.com/kawancodevibe" 
             target="_blank" 
             rel="noopener noreferrer"
             className="block relative"
