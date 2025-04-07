@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { MobileNavigation } from "@/components/mobile-navigation";
-import { HomeIcon, UserIcon, MailIcon, CodeIcon } from "lucide-react";
+import { HomeIcon, UserIcon, MailIcon, CodeIcon, InstagramIcon } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export function Navigation() {
@@ -31,6 +31,7 @@ export function Navigation() {
           { name: "Home", url: "/", icon: HomeIcon },
           { name: "About", url: "/about", icon: UserIcon },
           { name: "Projects", url: "/projects", icon: CodeIcon },
+          { name: "Instagram", url: "/instagram", icon: InstagramIcon },
           { name: "Contact", url: "/contact", icon: MailIcon },
         ]}
         className="dark"
