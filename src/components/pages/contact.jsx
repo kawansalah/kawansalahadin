@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 export default function Contact() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.error("This page is currently under maintenance. Please try again later.", {
+      duration: 2000
+    });
+  };
+
   return (
     <section className="relative w-full h-fit mt-10">
       <div className="flex items-start justify-center p-8">
@@ -51,7 +59,7 @@ export default function Contact() {
           </div>
 
           <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-8" />
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-white mb-2">Name</label>
               <input
