@@ -6,11 +6,39 @@ import Projects from "@/components/pages/projects";
 import Contact from "@/components/pages/contact";
 import Instagram from "@/components/pages/instagram";
 import { MainLayout } from "@/components/layouts/main-layout";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
       <MainLayout>
+        <Toaster 
+          position="top-center"
+          toastOptions={{
+            className: '',
+            style: {
+              background: 'rgba(10, 10, 10, 0.9)',
+              color: '#fff',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(8px)',
+              padding: '16px',
+              borderRadius: '8px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            },
+            success: {
+              iconTheme: {
+                primary: '#3b82f6',
+                secondary: '#fff',
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: '#ef4444',
+                secondary: '#fff',
+              },
+            },
+          }}
+        />
         <div className="sm:h-20 xs:h-20" />
         <Navigation />
         <Routes>
