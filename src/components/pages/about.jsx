@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section className="relative w-full h-full">
-      <div className="absolute inset-0 flex items-center justify-center p-8">
+    <section className="relative w-full h-full mt-10">
+      <div className="absolute inset-0 flex items-start justify-center p-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,6 +28,10 @@ export default function About() {
               <div className="bg-white/5 p-4 rounded-lg">
                 <h3 className="text-white font-medium">Backend</h3>
                 <p className="text-gray-400">Node.js, Express, PHP , MySQL  </p>
+              </div>
+              <div className="bg-white/5 p-4 rounded-lg">
+                <h3 className="text-white font-medium">UI/UX</h3>
+                <p className="text-gray-400">Figma, User Research, Wireframing</p>
               </div>
               <div className="bg-white/5 p-4 rounded-lg">
                 <h3 className="text-white font-medium">Tools</h3>

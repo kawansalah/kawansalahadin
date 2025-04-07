@@ -10,6 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <MainLayout>
+        <div className="sm:h-20 xs:h-20" />
         <Navigation />
         <Routes>
           <Route path="/" element={<SectionOne />} />
@@ -17,6 +18,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <div className="sm:h-40 xs:h-40" />
       </MainLayout>
     </BrowserRouter>
   );

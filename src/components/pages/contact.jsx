@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <section className="relative w-full h-full">
-      <div className="absolute inset-0 flex items-center justify-center p-8">
+    <section className="relative w-full h-fit mt-10">
+      <div className="flex items-start justify-center p-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
