@@ -62,6 +62,9 @@ export default function Projects() {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
           My Projects
         </h1>
+        <p className="text-white/80 text-lg mb-8">
+          Here are some of the projects I've worked on. Each one represents a unique challenge and learning experience.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <ProjectCard
