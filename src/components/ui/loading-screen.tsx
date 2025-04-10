@@ -14,10 +14,10 @@ export const LoadingScreen = () => {
       }}
       className="fixed inset-0 bg-black z-1000 flex items-center justify-center"
     >
-      <div className="w-64 h-64">
+      <div className="w-48 h-48 sm:w-64 sm:h-64">
         <GradientTracing
-          width={256}
-          height={256}
+          width={192}
+          height={192}
           baseColor="white"
           gradientColors={["#000", "#fff", "#000"]}
           animationDuration={1.5}
