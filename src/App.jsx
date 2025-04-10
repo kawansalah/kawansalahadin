@@ -7,11 +7,23 @@ import Contact from "@/components/pages/contact";
 import Instagram from "@/components/pages/instagram";
 import { MainLayout } from "@/components/layouts/main-layout";
 import { Toaster } from "react-hot-toast";
+import { LoadingScreen } from "@/components/ui/loading-screen";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <BrowserRouter>
       <MainLayout>
+        {isLoading && <LoadingScreen />}
         <Toaster 
           position="top-center"
           toastOptions={{
