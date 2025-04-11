@@ -22,12 +22,12 @@ module.exports = async (req, res) => {
 
       // Create a transporter using SendGrid
       const transporter = nodemailer.createTransport({
-        host: 'smtp.sendgrid.net',
-        port: 587,
+        host: 'smtp.gmail.com',
+        port: 587, 
         secure: false,
         auth: {
-          user: 'apikey',
-          pass: 'SG.1234567890'
+          user: process.env.SENDER_EMAIL,
+          pass: process.env.SENDGRID_API_KEY
         }
       });
 
