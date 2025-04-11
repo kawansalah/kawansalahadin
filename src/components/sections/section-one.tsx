@@ -20,7 +20,7 @@ export function SectionOne() {
                 "platform",
               ]}
               interval={3000}
-              className={"text-white font-bold  md:font-medium"}
+              className={"text-white font-bold  md:font-medium min-w-[300px] inline-block"}
             />{" "}
             deserves better tools
           </h1>
