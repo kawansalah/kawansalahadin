@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
         secure: false,
         auth: {
           user: 'apikey',
-          pass: process.env.SENDGRID_API_KEY
+          pass: 'SG.1234567890'
         }
       });
 
