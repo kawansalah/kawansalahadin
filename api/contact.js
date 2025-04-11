@@ -20,18 +20,20 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Invalid email format' });
       }
 
-      // Create a transporter using Gmail SMTP
+      // Create a transporter using SendGrid
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.sendgrid.net',
+        port: 587,
+        secure: false,
         auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASSWORD
+          user: 'apikey',
+          pass: process.env.SENDGRID_API_KEY
         }
       });
 
       // Email content
       const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: process.env.SENDER_EMAIL,
         to: 'kawansalahadin@gmail.com',
         subject: `New Contact Form Submission from ${name}`,
         html: `

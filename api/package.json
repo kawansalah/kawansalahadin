@@ -1,0 +1,9 @@
+{
+  "name": "contact-form-api",
+  "version": "1.0.0",
+  "description": "Contact form API for sending emails",
+  "main": "contact.js",
+  "dependencies": {
+    "nodemailer": "^6.9.9"
+  }
+} 
