@@ -18,7 +18,7 @@ import {
   FaWindows
 } from 'react-icons/fa';
 import { SiTailwindcss, SiAdobe, SiAdobeillustrator, SiAdobephotoshop, SiInstagram, SiTiktok } from 'react-icons/si';
-import profile from "@/assets/images/profile.jpg";
+import profile from "../assets/images/profile.jpg";
 
 const skillVariants = {
   hidden: { opacity: 0, y: 20 },
