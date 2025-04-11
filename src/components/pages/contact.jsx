@@ -2,11 +2,41 @@ import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
 export default function Contact() {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.error("This page is currently under maintenance. Please try again later.", {
-      duration: 2000
-    });
+    
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value
+    };
+
+    try {
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('Message sent successfully!', {
+          duration: 2000
+        });
+        e.target.reset();
+      } else {
+        toast.error(data.error || 'Failed to send message', {
+          duration: 2000
+        });
+      }
+    } catch (error) {
+      toast.error('An error occurred. Please try again later.', {
+        duration: 2000
+      });
+    }
   };
 
   return (
