@@ -1,15 +1,9 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "api/contact.php",
-      "use": "@vercel/php"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/contact.php",
-      "dest": "/api/contact.php"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 } 
