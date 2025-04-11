@@ -7,6 +7,10 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif', '**/*.svg'],
+  build: {
+    assetsInlineLimit: 4096, // 4kb
+  },
   server: {
     port: 3000,
     host: true,
