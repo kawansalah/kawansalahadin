@@ -72,24 +72,39 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl"
         >
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
-          >
-            About Me
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="text-lg text-white/70 leading-relaxed"
-          >
-            I'm a passionate developer focused on creating elegant and efficient solutions. 
-            With expertise in modern web technologies, I strive to build applications that 
-            not only look great but also provide exceptional user experiences.
-          </motion.p>
+          <div className="flex flex-col items-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative w-48 h-48 mb-6"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-white/40 to-white/20 rounded-full blur-xl opacity-30"></div>
+              <img 
+                src="/src/assets/images/profile.jpg" 
+                alt="Profile"
+                className="w-full h-full object-cover rounded-full border-4 border-white/10"
+              />
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+            >
+              About Me
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="text-lg text-white/70 leading-relaxed text-center"
+            >
+              I'm a passionate developer focused on creating elegant and efficient solutions. 
+              With expertise in modern web technologies, I strive to build applications that 
+              not only look great but also provide exceptional user experiences.
+            </motion.p>
+          </div>
           <div className="mt-12 space-y-8">
             <motion.h2 
               initial={{ opacity: 0, y: -20 }}
@@ -101,6 +116,36 @@ export default function About() {
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <SkillCard title="Frontend Development" icon={<FaCode className="text-3xl" />}>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <FaCode className="text-white/80" />
+                    <div className="flex justify-between w-full">
+                      <span className="text-white/70">HTML</span>
+                      <span className="text-white/70">99%</span>
+                    </div>
+                  </div>
+                  <ProgressBar percentage={99} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <FaPalette className="text-white/80" />
+                    <div className="flex justify-between w-full">
+                      <span className="text-white/70">CSS</span>
+                      <span className="text-white/70">95%</span>
+                    </div>
+                  </div>
+                  <ProgressBar percentage={95} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <FaCode className="text-white/80" />
+                    <div className="flex justify-between w-full">
+                      <span className="text-white/70">JavaScript</span>
+                      <span className="text-white/70">85%</span>
+                    </div>
+                  </div>
+                  <ProgressBar percentage={85} />
+                </div>
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <FaReact className="text-white/80" />
