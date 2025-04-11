@@ -1,3 +1,4 @@
+import profile from "@/assets/images/profile.jpg";
 import { motion } from "framer-motion";
 import { 
   FaReact, 
@@ -81,7 +82,7 @@ export default function About() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/40 to-white/20 rounded-full blur-xl opacity-30"></div>
               <img 
-                src="/src/assets/images/profile.jpg" 
+                src={profile}
                 alt="Profile"
                 className="w-full h-full object-cover rounded-full border-4 border-white/10"
               />
