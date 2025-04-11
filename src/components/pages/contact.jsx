@@ -12,7 +12,12 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch('https://kawansalahadin.vercel.app/api/contact', {   
+      // Use the correct API URL based on the environment
+      const apiUrl = process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:3000/api/contact'
+        : 'https://kawansalahadin.vercel.app/api/contact';
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
