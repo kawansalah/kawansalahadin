@@ -77,7 +77,7 @@ export default function Instagram() {
                 alt="Instagram Profile Screenshot"
                 className="w-full h-auto object-cover object-top max-h-fit md:max-h-[600px] lg:max-h-[700px] xl:max-h-[800px]"
               />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div> */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
           </a>
         </div>
