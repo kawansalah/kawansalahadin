@@ -41,13 +41,13 @@ module.exports = async (req, res) => {
         replyTo: email,
         subject: `New Contact Form Submission from ${name}`,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333;">New Contact Form Submission</h2>
-            <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px;">
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Message:</strong></p>
-              <div style="background-color: white; padding: 15px; border-radius: 3px; margin-top: 10px;">
+          <div style="font-family: 'Poppins', sans-serif; max-width: 600px; margin: 0 auto; background-color: #0a192f; color: #8892b0; padding: 30px;">
+            <h2 style="color: #64ffda; font-size: 24px; margin-bottom: 20px;">New Contact Form Submission</h2>
+            <div style="background-color: #112240; padding: 25px; border-radius: 8px; border: 1px solid #233554;">
+              <p style="margin: 10px 0;"><span style="color: #64ffda;">Name:</span> ${name}</p>
+              <p style="margin: 10px 0;"><span style="color: #64ffda;">Email:</span> ${email}</p>
+              <p style="margin: 10px 0;"><span style="color: #64ffda;">Message:</span></p>
+              <div style="background-color: #1e3a5f; padding: 20px; border-radius: 5px; margin-top: 15px; line-height: 1.6;">
                 ${message.replace(/\n/g, '<br>')}
               </div>
             </div>
