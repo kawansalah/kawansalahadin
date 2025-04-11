@@ -18,8 +18,6 @@ import {
   FaWindows
 } from 'react-icons/fa';
 import { SiTailwindcss, SiAdobe, SiAdobeillustrator, SiAdobephotoshop, SiInstagram, SiTiktok } from 'react-icons/si';
-import profile from "@/assets/images/profile.jpg";
-
 
 const skillVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -83,7 +81,7 @@ export default function About() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/40 to-white/20 rounded-full blur-xl opacity-30"></div>
               <img 
-                src={profile}
+                src="/src/assets/images/profile.jpg" 
                 alt="Profile"
                 className="w-full h-full object-cover rounded-full border-4 border-white/10"
               />
