@@ -1,9 +1,15 @@
 import Cors from 'cors';
 
-// Initialize CORS middleware
+// Initialize CORS middleware with more permissive settings
 const cors = Cors({
-  origin: ['https://www.kawansalahadin.dev', 'https://kawansalahadin.dev'],
-  methods: ['POST'],
+  origin: [
+    'https://www.kawansalahadin.dev',
+    'https://kawansalahadin.dev',
+    'http://localhost:3000', // For local development
+  ],
+  methods: ['POST', 'OPTIONS'],
+  credentials: true,
+  allowedHeaders: ['Content-Type'],
 });
 
 // Helper method to wait for a middleware to execute before continuing
@@ -19,14 +25,19 @@ function runMiddleware(req, res, fn) {
 }
 
 export default async function handler(req, res) {
-  // Run the CORS middleware
-  await runMiddleware(req, res, cors);
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  // Handle OPTIONS request for CORS preflight
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
   }
 
   try {
+    // Run the CORS middleware
+    await runMiddleware(req, res, cors);
+
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Method not allowed' });
+    }
+
     const { name, email, message } = req.body;
 
     // Validate the input
