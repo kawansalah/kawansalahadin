@@ -15,7 +15,7 @@ export default function Contact() {
       // Use the correct API URL based on the environment
       const apiUrl = process.env.NODE_ENV === 'development' 
         ? 'http://localhost:3000/api/contact'
-        : 'https://kawansalahadin.vercel.app/api/contact';
+        : 'https://kawansalahadin.dev/api/contact';
 
       const response = await fetch(apiUrl, {
         method: 'POST',
