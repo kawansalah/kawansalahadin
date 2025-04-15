@@ -8,7 +8,6 @@ import { MainLayout } from "@/components/layouts/main-layout";
 import { Toaster } from "react-hot-toast";
 import { LoadingScreen } from "@/components/ui/loading-screen";
 import { useState, useEffect } from "react";
-import ScrollToTop from "@/components/ScrollToTop";
 import { Home } from "@/components/home";
 import { Footer } from "@/components/footer";
 
@@ -26,7 +25,6 @@ function App() {
     <BrowserRouter>
       <MainLayout>
         {isLoading && <LoadingScreen />}
-        <ScrollToTop />
         <Toaster 
           position="top-center"
           toastOptions={{
