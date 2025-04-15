@@ -5,6 +5,7 @@ import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
+import { useMediaQuery } from "react-responsive";
 
 interface NavItem {
   name: string;
@@ -30,7 +31,7 @@ export function NavBar({ items, className, logo, getInTouch }: NavBarProps) {
     return matchingItem?.name || items[0].name;
   });
   const [isMobile, setIsMobile] = useState(false);
-
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 950px)" });
   useEffect(() => {
     const currentPath = location.pathname;
     const matchingItem = items.find((item) => item.url === currentPath);
@@ -106,7 +107,8 @@ export function NavBar({ items, className, logo, getInTouch }: NavBarProps) {
             })}
           </div>
         </div>
-        {getInTouch && (
+
+        {getInTouch && !isSmallScreen && (
           <InteractiveHoverButton
             onClick={getInTouch.onClick}
             className="hidden md:flex rounded-full text-white outline-1 outline-white/40 hover:bg-primary/10 hover:text-primary hover:scale-105 hover:border-primary transition-all duration-500 border border-transparent cursor-pointer "
@@ -114,6 +116,7 @@ export function NavBar({ items, className, logo, getInTouch }: NavBarProps) {
             {getInTouch.text}
           </InteractiveHoverButton>
         )}
+
       </div>
     </div>
   );

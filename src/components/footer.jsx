@@ -50,7 +50,7 @@ export function Footer() {
                   <div className="p-2 bg-white/5 rounded-lg group-hover:bg-white/10 transition-colors">
                     <MdEmail className="h-6 w-6 md:h-5 md:w-5 lg:h-6 lg:w-6" />
                   </div>
-                  <span className="group-hover:translate-x-1 transition-transform">
+                  <span className="group-hover:translate-x-1 transition-transform text-base md:text-sm lg:text-sm 2xl:text-base">
                     <span className="hidden md:inline lg:hidden">kawan.salahadin</span>
                     <span className="inline md:hidden lg:inline">kawan.salahadin@gmail.com</span>
                   </span>
