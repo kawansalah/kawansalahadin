@@ -10,6 +10,7 @@ import { LoadingScreen } from "@/components/ui/loading-screen";
 import { useState, useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Home } from "@/components/home";
+import { Footer } from "@/components/footer";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,7 +63,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/instagram" element={<Instagram />} />
         </Routes>
-        {/* <div className="sm:h-40 xs:h-40" /> */}
+        <Footer />
       </MainLayout>
     </BrowserRouter>
   );

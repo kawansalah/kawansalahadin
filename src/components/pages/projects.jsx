@@ -19,7 +19,7 @@ export default function Projects() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10 mt-10">
+    <section className="max-w-7xl mx-auto px-4 py-10 mt-10 min-h-[calc(100vh-200px)]">
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
