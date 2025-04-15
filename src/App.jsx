@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigation } from "@/components/navigation";
-import { SectionOne } from "@/components/sections/section-one";
 import About from "@/components/pages/about";
 import Projects from "@/components/pages/projects";
 import Contact from "@/components/pages/contact";
@@ -10,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { LoadingScreen } from "@/components/ui/loading-screen";
 import { useState, useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
+import { Home } from "@/components/home";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -56,13 +56,13 @@ function App() {
         <div className="sm:h-20 xs:h-20" />
         <Navigation />
         <Routes>
-          <Route path="/" element={<SectionOne />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/instagram" element={<Instagram />} />
         </Routes>
-        <div className="sm:h-40 xs:h-40" />
+        {/* <div className="sm:h-40 xs:h-40" /> */}
       </MainLayout>
     </BrowserRouter>
   );
