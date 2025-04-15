@@ -10,6 +10,7 @@ import { LoadingScreen } from "@/components/ui/loading-screen";
 import { useState, useEffect } from "react";
 import { Home } from "@/components/home";
 import { Footer } from "@/components/footer";
+import NotFound from "@/components/pages/not-found";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +61,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/instagram" element={<Instagram />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </MainLayout>
