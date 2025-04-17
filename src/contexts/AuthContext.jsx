@@ -22,7 +22,7 @@ export function AuthProvider({ children }) {
   // Login function with static credentials
   const login = (username, password) => {
     // Static credentials for demo
-    if (username === "admin" && password === "password") {
+    if (username === "admin" && password === "1") {
       const userData = { username, role: "admin" };
       setUser(userData);
       setIsAuthenticated(true);

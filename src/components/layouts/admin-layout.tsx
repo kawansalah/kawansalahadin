@@ -27,7 +27,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             hoverFillColor="#1A1A1A"
           />
           <div ref={scrollableDivRef} className="absolute inset-0 overflow-auto overflow-x-clip">
-            <div className="min-h-full">
+            <div className="flex flex-row flex-1/2 min-h-full">
               {children}
             </div>
           </div>
