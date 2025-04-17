@@ -12,12 +12,14 @@ import { useState, useEffect } from "react";
 import { Home } from "@/components/pages/home";
 import { Footer } from "@/components/footer";
 import NotFound from "@/components/pages/not-found";
-import AdminDashboard from "@/components/admin/dashboard";
-import Login from "@/components/auth/login";
-import { AdminNavigation } from "@/components/admin/admin-navigation";
+import AdminDashboard from "@/admin/dashboard";
+import Login from "@/auth/login";
+import { AdminNavigation } from "@/admin/admin-navigation";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ProtectedRoute } from "@/components/routes/ProtectedRoute";
-
+import UsersManagement from "@/admin/users-management";
+import ContentManagement from "@/admin/content-management";
+import Settings from "@/admin/settings";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -77,45 +79,62 @@ function App() {
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} />
             <Route path="instagram" element={<Instagram />} />
+            {/* 404 route */}
+            <Route path="*" element={<NotFound />} />
           </Route>
 
           {/* Admin routes */}
-          <Route path="/admin" element={<AdminLayout><Outlet /></AdminLayout>}>
+          <Route
+            path="/admin"
+            element={
+              <AdminLayout>
+                <Outlet />
+              </AdminLayout>
+            }
+          >
             {/* Login as index route */}
             <Route index element={<Login />} />
-            
+
             {/* Protected admin routes */}
             <Route element={<ProtectedRoute />}>
-              <Route path="dashboard" element={
-                <>
-                  <AdminNavigation />
-                  <AdminDashboard />
-                </>
-              } />
-              <Route path="users" element={
-                <>
-                  <AdminNavigation />
-                  <div>Users Management</div>
-                </>
-              } />
-              <Route path="content" element={
-                <>
-                  <AdminNavigation />
-                  <div>Content Management</div>
-                </>
-              } />
-              <Route path="settings" element={
-                <>
-                  <AdminNavigation />
-                  <div>Settings</div>
-                </>
-              } />
+              <Route
+                path="dashboard"
+                element={
+                  <>
+                    <AdminNavigation />
+                    <AdminDashboard />
+                  </>
+                }
+              />
+              <Route
+                path="users"
+                element={
+                  <>
+                    <AdminNavigation />
+                    <UsersManagement />
+                  </>
+                }
+              />
+              <Route
+                path="content"
+                element={
+                  <>
+                    <AdminNavigation />
+                    <ContentManagement />
+                  </>
+                }
+              />
+              <Route
+                path="settings"
+                element={
+                  <>
+                    <AdminNavigation />
+                    <Settings />
+                  </>
+                }
+              />
             </Route>
           </Route>
-
-          {/* 404 route */}
-          <Route path="*" element={<NotFound />} />
-          
         </Routes>
       </AuthProvider>
     </BrowserRouter>

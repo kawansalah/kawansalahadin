@@ -1,15 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  HomeIcon, 
-  SettingsIcon, 
-  UsersIcon, 
-  FileTextIcon, 
+import {
+  HomeIcon,
+  SettingsIcon,
+  UsersIcon,
+  FileTextIcon,
   LogOutIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   MenuIcon,
-  XIcon
+  XIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
@@ -36,10 +36,10 @@ export function AdminNavigation() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const handleLogout = () => {
@@ -60,10 +60,11 @@ export function AdminNavigation() {
               "flex items-center gap-3 px-4 py-3 rounded-lg",
               "text-gray-300 hover:text-white",
               "transition-all duration-200",
-              isActive && "bg-white/10 text-white"
+              isActive && "bg-white/10 text-white",
+              isCollapsed && "justify-center"
             )}
           >
-            <item.icon className="h-5 w-5" />
+            <item.icon className={cn("h-5 w-5", isCollapsed && "h-6 w-6")} />
             {!isCollapsed && <span>{item.name}</span>}
           </Link>
         );
@@ -72,21 +73,25 @@ export function AdminNavigation() {
   );
 
   const renderDesktopSidebar = () => (
-    <motion.nav 
+    <motion.nav
       className={cn(
-        "fixed left-0 top-0 h-full bg-[rgba(20,20,20,0.8)] border-r border-white/10 p-4 z-50",
+        "relative h-auto bg-[rgba(20,20,20,0.8)] border-r border-white/10 p-4 z-50",
         isCollapsed ? "w-20" : "w-64"
       )}
       initial={false}
       animate={{ width: isCollapsed ? "5rem" : "16rem" }}
       transition={{ duration: 0.2 }}
     >
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full overflow-hidden">
         <div className="mb-8 flex items-center justify-between">
           {!isCollapsed && (
             <div className="flex flex-col">
               <h1 className="text-xl font-bold text-white">Admin Panel</h1>
-              {user && <p className="text-sm text-gray-400">Welcome, {user.username}</p>}
+              {user && (
+                <p className="text-sm text-gray-400">
+                  Welcome, {user.username}
+                </p>
+              )}
             </div>
           )}
           <Button
@@ -95,10 +100,14 @@ export function AdminNavigation() {
             onClick={() => setIsCollapsed(!isCollapsed)}
             className="p-2 rounded-lg hover:bg-white/10 transition-colors"
           >
-            {isCollapsed ? <ChevronRightIcon className="h-5 w-5 text-white" /> : <ChevronLeftIcon className="h-5 w-5 text-white" />}
+            {isCollapsed ? (
+              <ChevronRightIcon className="h-5 w-5 text-white" />
+            ) : (
+              <ChevronLeftIcon className="h-5 w-5 text-white" />
+            )}
           </Button>
         </div>
-        
+
         {renderNavItems(isCollapsed)}
 
         <div className="mt-auto">
@@ -109,10 +118,11 @@ export function AdminNavigation() {
               "flex items-center w-full gap-3 px-4 py-3 rounded-lg",
               "text-gray-300 hover:text-white",
               "transition-all duration-200",
-              "hover:bg-white/10"
+              "hover:bg-white/10",
+              isCollapsed && "justify-center"
             )}
           >
-            <LogOutIcon className="h-5 w-5" />
+            <LogOutIcon className={cn("h-5 w-5", isCollapsed && "h-6 w-6")} />
             {!isCollapsed && <span>Logout</span>}
           </Button>
         </div>
@@ -123,17 +133,26 @@ export function AdminNavigation() {
   const renderMobileSidebar = () => (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="fixed top-4 left-4 z-50 md:hidden">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="fixed bg-white top-4 left-4 z-50 md:hidden"
+        >
           <MenuIcon className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-64 p-0 bg-[rgba(20,20,20,0.8)] border-r border-white/10">
+      <SheetContent
+        side="left"
+        className="w-64 p-0 bg-[rgba(20,20,20,0.8)] border-r border-white/10"
+      >
         <div className="flex flex-col h-full p-4">
           <div className="mb-8">
             <h1 className="text-xl font-bold text-white">Admin Panel</h1>
-            {user && <p className="text-sm text-gray-400">Welcome, {user.username}</p>}
+            {user && (
+              <p className="text-sm text-gray-400">Welcome, {user.username}</p>
+            )}
           </div>
-          
+
           {renderNavItems(false)}
 
           <div className="mt-auto">
@@ -151,9 +170,5 @@ export function AdminNavigation() {
     </Sheet>
   );
 
-  return (
-    <>
-      {isMobile ? renderMobileSidebar() : renderDesktopSidebar()}
-    </>
-  );
-} 
+  return <>{isMobile ? renderMobileSidebar() : renderDesktopSidebar()}</>;
+}
