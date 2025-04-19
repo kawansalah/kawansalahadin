@@ -126,9 +126,9 @@ export default function Login() {
                           placeholder="Enter password"
                         />
                       </div>
-                      {/* <p className="text-xs text-gray-500 mt-2 text-right">
+                      <p className="text-xs text-gray-500 mt-2 text-right">
                         Demo: admin / password
-                      </p> */}
+                      </p>
                     </div>
                     
                     <motion.button
